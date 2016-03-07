@@ -1,0 +1,79 @@
+{
+'zenrin':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+    },'mmi':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+},'navinfo':{
+        'poi':{},
+        'area':{},
+        'postcode':{},
+        'street':{},
+        'hno':{},
+        'category':{},
+        'voice':{},
+        'abbr':{}
+},'here':{
+        'poi':{},
+        'area':{},
+        'postcode':{},
+        'street':{},
+        'hno':{},
+        'category':{},
+        'voice':{},
+        'abbr':{}
+        }
+,'tomtom':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+    },
+'mid':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+    },
+'tbl':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+    },
+'other':{
+    'poi':{},
+    'area':{},
+    'postcode':{},
+    'street':{},
+    'hno':{},
+    'category':{},
+    'voice':{},
+    'abbr':{}
+    }
+}
