@@ -366,10 +366,12 @@ class MyFrame1 ( wx.Frame ):
             self.SetTitle('collect sql')
             if self.db.isconnected():
                 result = self.db.fetchall(sql)
+                col_value = self.db.get_column_name()
+                print col_value
                 if isinstance(result, list):
                     # show the result to Grid
                     rowLabels = range(0, result.__len__())
-                    colLabels = range(0, result[0].__len__())
+                    colLabels = col_value
                     tableBase = GenericTable.GenericTable(result, rowLabels,
                                                           colLabels)
                     self.result_grid.SetTable(tableBase)

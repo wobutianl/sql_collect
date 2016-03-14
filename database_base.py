@@ -23,7 +23,8 @@ class database( object ):
 
     def fetchone(self):
         '''get one record'''
-        return self.cur.fetchone()
+        self.result = self.cur.fetchone()
+        return self.result
 
     def fetchall(self, sqlcmd):
         '''
@@ -32,16 +33,23 @@ class database( object ):
         '''
         sql_result = self.do_execute( sqlcmd )
         if sql_result == 0:
-            return self.cur.fetchall()
+            self.result = self.cur.fetchall()
+            return self.result
         else:
             return sql_result
 
+    def get_column_name(self):
+        result = []
+        if self.cur and self.result:
+            for i, value in enumerate(self.result[0]):
+                result.append(self.cur.description[i][0])
+            return result
+        else:
+            return result
+
+
     def do_execute(self, sqlcmd):
         sql_result = self.execute(sqlcmd)
-        # if sql_result == 0:
-        #     self.commit()
-        #     return 0
-        # else:
 
         self.commit()
         return sql_result
