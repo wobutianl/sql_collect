@@ -30,56 +30,17 @@ class MyFrame1 ( wx.Frame ):
 
         self.SetSizeHintsSz(wx.DefaultSize, wx.DefaultSize)
 
-        bSizer1 = wx.BoxSizer(wx.VERTICAL)
+        bSizer1 = wx.BoxSizer(wx.VERTICAL)  # main frame
 
-        bSizer2 = wx.BoxSizer(wx.HORIZONTAL)
+        bSizer2 = wx.BoxSizer(wx.HORIZONTAL)    # connect to db
 
-        self.m_staticText1 = wx.StaticText(self, wx.ID_ANY, u"host", wx.DefaultPosition, wx.DefaultSize, 0)
-        self.m_staticText1.Wrap(-1)
-        bSizer2.Add(self.m_staticText1, 0, wx.ALL, 5)
 
-        host_comboChoices = [u"172.26.185.139", u"192.168.8.18"]
-        self.host_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
-                                      host_comboChoices, 0)
-        bSizer2.Add(self.host_combo, 0, wx.ALL, 5)
-
-        self.vendor_combo = wx.StaticText(self, wx.ID_ANY, u"vendor", wx.DefaultPosition, wx.DefaultSize, 0)
-        self.vendor_combo.Wrap(-1)
-        bSizer2.Add(self.vendor_combo, 0, wx.ALL, 5)
-
-        vendor_comboChoices = []
-        self.vendor_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
-                                        vendor_comboChoices, 0)
-        bSizer2.Add(self.vendor_combo, 0, wx.ALL, 5)
-
-        self.area = wx.StaticText(self, wx.ID_ANY, u"area", wx.DefaultPosition, wx.DefaultSize, 0)
-        self.area.Wrap(-1)
-        bSizer2.Add(self.area, 0, wx.ALL, 5)
-
-        area_comboChoices = []
-        self.area_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
-                                      area_comboChoices, 0)
-        bSizer2.Add(self.area_combo, 0, wx.ALL, 5)
-
-        self.m_staticText3 = wx.StaticText(self, wx.ID_ANY, u"db_name", wx.DefaultPosition, wx.DefaultSize, 0)
-        self.m_staticText3.Wrap(-1)
-        bSizer2.Add(self.m_staticText3, 0, wx.ALL, 5)
-
-        db_comboChoices = []
-        self.db_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
-                                    db_comboChoices, 0)
-        bSizer2.Add(self.db_combo, 3, wx.ALL, 5)
-
-        self.connect_btn = wx.Button(self, wx.ID_ANY, u"connect", wx.DefaultPosition, wx.DefaultSize, 0)
-        bSizer2.Add(self.connect_btn, 0, wx.ALL, 5)
 
         bSizer1.Add(bSizer2, 0, wx.EXPAND, 5)
 
-        bSizer3 = wx.BoxSizer(wx.HORIZONTAL)
+        bSizer3 = wx.BoxSizer(wx.HORIZONTAL)  # (tree + code + add sql ) frame
 
-        self.kind_tree = wx.TreeCtrl(self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TR_DEFAULT_STYLE)
         bSizer3.Add(self.kind_tree, 1, wx.ALL | wx.EXPAND, 5)
-
         bSizer4 = wx.BoxSizer(wx.VERTICAL)
 
         self.code_text = wx.richtext.RichTextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
@@ -222,6 +183,56 @@ class MyFrame1 ( wx.Frame ):
 
         # fill the tree list
         self.refresh_tree_list(self.treeroot)
+
+    def createToolBar(self):
+
+        pass
+
+    def createTreeCtrl(self):
+        self.kind_tree = wx.TreeCtrl(self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TR_DEFAULT_STYLE)
+
+        pass
+
+    def createConDB(self, bSizer2):
+        self.m_staticText1 = wx.StaticText(self, wx.ID_ANY, u"host", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText1.Wrap(-1)
+        bSizer2.Add(self.m_staticText1, 0, wx.ALL, 5)
+
+        host_comboChoices = [u"172.26.185.139", u"192.168.8.18"]
+        self.host_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
+                                      host_comboChoices, 0)
+        bSizer2.Add(self.host_combo, 0, wx.ALL, 5)
+
+        self.vendor_combo = wx.StaticText(self, wx.ID_ANY, u"vendor", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.vendor_combo.Wrap(-1)
+        bSizer2.Add(self.vendor_combo, 0, wx.ALL, 5)
+
+        vendor_comboChoices = []
+        self.vendor_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
+                                        vendor_comboChoices, 0)
+        bSizer2.Add(self.vendor_combo, 0, wx.ALL, 5)
+
+        self.area = wx.StaticText(self, wx.ID_ANY, u"area", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.area.Wrap(-1)
+        bSizer2.Add(self.area, 0, wx.ALL, 5)
+
+        area_comboChoices = []
+        self.area_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
+                                      area_comboChoices, 0)
+        bSizer2.Add(self.area_combo, 0, wx.ALL, 5)
+
+        self.m_staticText3 = wx.StaticText(self, wx.ID_ANY, u"db_name", wx.DefaultPosition, wx.DefaultSize, 0)
+        self.m_staticText3.Wrap(-1)
+        bSizer2.Add(self.m_staticText3, 0, wx.ALL, 5)
+
+        db_comboChoices = []
+        self.db_combo = wx.ComboBox(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize,
+                                    db_comboChoices, 0)
+        bSizer2.Add(self.db_combo, 3, wx.ALL, 5)
+
+        self.connect_btn = wx.Button(self, wx.ID_ANY, u"connect", wx.DefaultPosition, wx.DefaultSize, 0)
+        bSizer2.Add(self.connect_btn, 0, wx.ALL, 5)
+        pass
 
     def __del__(self):
         pass

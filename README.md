@@ -9,10 +9,11 @@ make a softerware to collect sql which used in daily work , and may reused one a
 5. 备份代码文件
 
 ## 目前存在问题
-1. 显示结果时，不能显示列名
-2. 没有添加 Port 选项
+1. 显示结果时，不能显示列名 ( 完成）
+2. 没有添加 Port 选项 
 3. 没有Sql代码搜索功能
 4. 没有自定义路径选择
+5. 需要重构
 
 ## 详细设计需要
 
